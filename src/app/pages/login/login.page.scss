@@ -1,4 +1,7 @@
-.center-span {
+form, input, optgroup, select {
+    margin: 0;
+    font: inherit;
+    color: inherit;
     display: block;
     text-align: center;
 }
