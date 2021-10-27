@@ -1,13 +1,13 @@
-export interface Marker {
+export interface marker {
     coords: {
         lat: string;
         lng: string;
     }
     pay: {
-        payMeans: {
-            CASH:   boolean;
-            TC:     boolean;
-            WALLET: boolean;
+        paymeans: {
+            cash:   boolean;
+            tc:     boolean;
+            wallet: boolean;
         }
         pay:      boolean;
         currency: string;
@@ -17,24 +17,24 @@ export interface Marker {
         desc:        string;
         owner:       string;
         reservation: boolean;
-        moneyBack:   boolean;
+        moneyback:   boolean;
         days: [
              {mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{tue:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{wed:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{thu:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{fri:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{sat:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{sut:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
         ]
     }
-    style: {
+    style?: {
         animation: string;
     }
-    reting: [
+    reting?: [
         {user: string; title: string; desc: string; rate: number;}
     ]
-    other: {
+    other?: {
 
     }
 }

@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ModalController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import { ModalCreateMarkerPage } from '../pages/modal-create-marker/modal-create-marker.page';
 
 
 declare var google: any;
@@ -46,7 +47,7 @@ export class Tab2Page {
   ) {}
 
   ngOnInit() {
-    this.loadingMap();
+    // this.loadingMap();
   }
 
   //Cada vez que se entre a la pagina hacer ...
@@ -355,17 +356,17 @@ export class Tab2Page {
 
   }
 
-  // async presentModal() {
-  //   //console.log(this.ratings)
-  //   const modal = await this.modal.create({
-  //     component: MRatingPage,
-  //     cssClass: 'my-custom-class',
-  //     componentProps: {
-  //       title: this.title,
-  //       ratings: this.ratings
-  //     }
-  //   });
-  //   return await modal.present();
-  // }
+  async presentModal() {
+    //console.log(this.ratings)
+    const modal = await this.modal.create({
+      component: ModalCreateMarkerPage,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        title: this.title,
+        ratings: this.ratings
+      }
+    });
+    return await modal.present();
+  }
 
 }

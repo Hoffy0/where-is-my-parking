@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },  {
+    path: 'modal-create-marker',
+    loadChildren: () => import('./pages/modal-create-marker/modal-create-marker.module').then( m => m.ModalCreateMarkerPageModule)
   }
+
 ];
 @NgModule({
   imports: [
