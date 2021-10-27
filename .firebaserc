@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "where-is-my-park": {
+      "hosting": {
+        "app": [
+          "where-is-my-park"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "where-is-my-park"
+  }
+}
