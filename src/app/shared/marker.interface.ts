@@ -19,13 +19,13 @@ export interface marker {
         reservation: boolean;
         moneyback:   boolean;
         days: [
-             {mon:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{tue:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{wed:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{thu:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{fri:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{sat:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{sut:{hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+             {mon:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{tue:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{wed:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{thu:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{fri:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{sat:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{sut:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
         ]
     }
     style?: {

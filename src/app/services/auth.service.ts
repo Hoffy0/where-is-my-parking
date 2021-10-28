@@ -22,6 +22,9 @@ export class AuthService {
     this.user$ = this.fireAuth.authState.pipe(
       switchMap((user) => {
         if(user){
+          // this.fireStore.doc<User>("user/" + user.uid).set({
+          //   ...user,
+          // });
           return this.fireStore.doc<User>("user/" + user.uid).valueChanges();
         }
         return of(null)
@@ -30,9 +33,17 @@ export class AuthService {
   }
   
   /******************** BY EMAIL ***************************/
-  async register(email: string, password: string): Promise<User>{
+  async register(name: string, email: string, password: string, lessee: Boolean, rut: string): Promise<User>{
     try {
       const { user } = await this.fireAuth.createUserWithEmailAndPassword(email, password);
+      this.fireStore.doc("user/" + user.uid).set({
+        uid: user.uid,
+        email: user.email,
+        emailVerified: user.emailVerified,
+        displayName: user.displayName,
+        lessee,
+        rut
+      });
       return user;
     } catch (err) {
       console.error(err);
@@ -49,6 +60,7 @@ export class AuthService {
   async login(email: string, password: string): Promise<User>{
     try {
       const { user } = await this.fireAuth.signInWithEmailAndPassword(email, password);
+      // console.log(user);
       this.updateUserData(user);
       return user;
     } catch (err) {
@@ -85,6 +97,8 @@ export class AuthService {
       email: user.email,
       emailVerified: user.emailVerified,
       displayName: user.displayName,
+      // rut: user.rut,
+      // lessee: user.lessee
     };
     return userRef.set(data, { merge: true });
   }

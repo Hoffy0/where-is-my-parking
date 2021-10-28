@@ -10,16 +10,28 @@
 <ion-content>
   <form action="">
     <ion-item lines="full">
+      <ion-label position="floating"> Nombre </ion-label>
+      <ion-input type="text" required #name ></ion-input>
+    </ion-item>
+    <ion-item lines="full">
       <ion-label position="floating"> Email </ion-label>
       <ion-input type="email" required #email ></ion-input>
     </ion-item><ion-item lines="full">
       <ion-label position="floating"> Password </ion-label>
       <ion-input type="password" required #password ></ion-input>
     </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" (click)="register(email.value, password.value)" expand="block"> Registrar </ion-button>
-      </ion-col>
-    </ion-row>
+    <ion-item lines="full">
+      <ion-label position="floating"> Rut </ion-label>
+      <ion-input type="text" required #rut ></ion-input>
+    </ion-item>
+  <ion-item lines="full">
+    <ion-label position="default"> Arrendaras tu estacionamiento? </ion-label>
+    <ion-checkbox required #lessee></ion-checkbox>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" (click)="register(name.value, email.value, password.value, lessee.checked, rut.value)" expand="block"> Registrar </ion-button>
+    </ion-col>
+  </ion-row>
   </form>
 </ion-content>

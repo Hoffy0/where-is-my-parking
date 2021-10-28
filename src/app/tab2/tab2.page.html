@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons>
       <ion-buttons slot="end">
-        <ion-button size="large" slot="end" (click)="presentModal()"> <ion-icon name="add-outline"></ion-icon> </ion-button>
+        <ion-button *ngIf="lessee" size="large" slot="end" (click)="presentModal()"> <ion-icon name="add-outline"></ion-icon> </ion-button>
       </ion-buttons>
     </ion-buttons>
   </ion-toolbar>

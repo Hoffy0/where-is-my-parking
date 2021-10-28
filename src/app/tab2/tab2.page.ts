@@ -3,7 +3,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ModalController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { ModalCreateMarkerPage } from '../pages/modal-create-marker/modal-create-marker.page';
-
+import { AuthService } from '../services/auth.service';
 
 declare var google: any;
 
@@ -14,6 +14,8 @@ declare var google: any;
 })
 export class Tab2Page {
   map: any;
+
+  lessee: Boolean = false;
 
   @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;  
 
@@ -44,14 +46,23 @@ export class Tab2Page {
     private gps: Geolocation,
     public modal: ModalController,
     public loading: LoadingController,
+    public auth: AuthService,
   ) {}
 
   ngOnInit() {
+    this.auth.user$.subscribe( data => {
+      console.log(data.lessee)
+      this.lessee = data.lessee
+    });
     // this.loadingMap();
   }
 
   //Cada vez que se entre a la pagina hacer ...
   async ionViewDidEnter(){
+    this.auth.user$.subscribe( data => {
+      console.log(data.lessee)
+      this.lessee = data.lessee
+    });
     // this.geolocation();
     this.currentLocation();
     //this.showMap();
