@@ -46,7 +46,7 @@ export class Tab2Page {
     private gps: Geolocation,
     public modal: ModalController,
     public loading: LoadingController,
-    public auth: AuthService,
+    private auth: AuthService,
   ) {}
 
   ngOnInit() {

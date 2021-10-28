@@ -1,4 +1,5 @@
 export interface marker {
+    active: Boolean;
     coords: {
         lat: string;
         lng: string;
@@ -19,19 +20,19 @@ export interface marker {
         reservation: boolean;
         moneyback:   boolean;
         days: [
-             {mon:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{tue:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{wed:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{thu:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{fri:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{sat:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
-            ,{sut:{active: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+             {mon:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{tue:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{wed:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{thu:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{fri:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{sat:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
+            ,{sut:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
         ]
     }
     style?: {
         animation: string;
     }
-    reting?: [
+    rating?: [
         {user: string; title: string; desc: string; rate: number;}
     ]
     other?: {

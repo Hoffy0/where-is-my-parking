@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>modal-createMarker</ion-title>
+    <ion-title>createMarker</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -15,8 +18,14 @@
         <ion-label position="floating"> Descripcion </ion-label>
         <ion-textarea required #desc></ion-textarea>
       </ion-item>
+      <ion-item lines="full">
+        <ion-label position="default"> Ubicacion </ion-label>
+        <ion-button class="" (click)="getPosition()" > <ion-icon name="navigate-outline"></ion-icon> </ion-button>
+      </ion-item>
       <ion-grid>
-        <ion-label position="default"> Días </ion-label>
+        <ion-text>
+          <h4> Días </h4>
+        </ion-text>
         <ion-row>
           <ion-col>
             <!---------------- Lunes ---------------------------->
@@ -28,11 +37,11 @@
               <div *ngIf="lun.checked">
                 <ion-item>
                   <ion-label position="stacked"> Hora de apertura </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #lunOpen></ion-datetime>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked"> Hora de cierre </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #lunClose></ion-datetime>
                 </ion-item>
               </div>
             </div>
@@ -45,11 +54,11 @@
               <div *ngIf="mar.checked">
                 <ion-item>
                   <ion-label position="stacked"> Hora de apertura </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #marOpen></ion-datetime>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked"> Hora de cierre </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #marClose></ion-datetime>
                 </ion-item>
               </div>
             </div>
@@ -62,11 +71,11 @@
               <div *ngIf="mie.checked">
                 <ion-item>
                   <ion-label position="stacked"> Hora de apertura </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #mieOpen></ion-datetime>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked"> Hora de cierre </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #mieClose></ion-datetime>
                 </ion-item>
               </div>
             </div>
@@ -79,11 +88,11 @@
               <div *ngIf="jue.checked">
                 <ion-item>
                   <ion-label position="stacked"> Hora de apertura </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #jueOpen></ion-datetime>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked"> Hora de cierre </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #jueClose></ion-datetime>
                 </ion-item>
               </div>
             </div>
@@ -96,11 +105,11 @@
               <div *ngIf="vie.checked">
                 <ion-item>
                   <ion-label position="stacked"> Hora de apertura </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #vieOpen></ion-datetime>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked"> Hora de cierre </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #vieClose></ion-datetime>
                 </ion-item>
               </div>
             </div>
@@ -113,11 +122,11 @@
               <div *ngIf="sab.checked">
                 <ion-item>
                   <ion-label position="stacked"> Hora de apertura </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #sabOpen></ion-datetime>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked"> Hora de cierre </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #sabClose></ion-datetime>
                 </ion-item>
               </div>
             </div>
@@ -130,14 +139,37 @@
               <div *ngIf="dom.checked">
                 <ion-item>
                   <ion-label position="stacked"> Hora de apertura </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #domOpen></ion-datetime>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked"> Hora de cierre </ion-label>
-                  <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                  <ion-datetime displayFormat="HH:mm" #domClose></ion-datetime>
                 </ion-item>
               </div>
             </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-text>
+        <h4> Metodos de pago </h4>
+      </ion-text>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item lines="none">
+              <ion-label position="stacked"> Efectivo </ion-label>
+              <ion-checkbox required #cash></ion-checkbox>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked"> T.C </ion-label>
+              <ion-checkbox required #tc></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item lines="none">
+              <ion-label position="stacked"> Billetera </ion-label>
+              <ion-checkbox required #wallet></ion-checkbox>
+            </ion-item>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -146,21 +178,30 @@
         <ion-checkbox required #vegan></ion-checkbox>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="default"> Apto para vegetarianos </ion-label>
+        <ion-label position="default">  </ion-label>
         <ion-checkbox required #veggie></ion-checkbox>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="default"> Sin Gluten </ion-label>
+        <ion-label position="default">  </ion-label>
         <ion-checkbox required #gluten></ion-checkbox>
       </ion-item>
       <ion-item lines="full">
-        <ion-label position="default"> Apto para diabeticos </ion-label>
+        <ion-label position="default">  </ion-label>
         <ion-checkbox required #diabetic></ion-checkbox>
       </ion-item>
       <hr>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" size="large" (click)="createProduct(name, brand, desc, vegan, veggie, gluten, diabetic, ean_13)" expand="block">
+          <ion-button 
+            type="submit" 
+            size="large" 
+            (click)="createMarker(
+              title,
+              desc,
+              lunOpen
+
+              )" 
+            expand="block">
             Crear
           </ion-button>
         </ion-col>
