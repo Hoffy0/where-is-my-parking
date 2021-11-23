@@ -1,11 +1,11 @@
 export interface marker {
     active: Boolean;
     coords: {
-        lat: string;
-        lng: string;
+        lat: Number;
+        lng: Number;
     }
     pay: {
-        paymeans: {
+        paymeans?: {
             cash:   boolean;
             tc:     boolean;
             wallet: boolean;
@@ -19,7 +19,7 @@ export interface marker {
         owner:       string;
         reservation: boolean;
         moneyback:   boolean;
-        days: [
+        days?: [
              {mon:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
             ,{tue:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}
             ,{wed:{activeDay: boolean; hours:{open: string; close: string;}; price:{minute:string; hour: string; day: string; month: string;}}}

@@ -16,6 +16,10 @@ export class MarkerService {
     return this.fireStore.collection("marker").add(data);
   }
 
+  async readAllMarker(){
+    return this.fireStore.collection("marker").snapshotChanges();
+  }
+
 
 
 }

@@ -1,8 +1,8 @@
 export interface User {
-    uid:           String;
-    displayName:   String;
-    email:         String;
-    rut?:          String;
+    uid:           string;
+    displayName:   string;
+    email:         string;
+    rut?:          string;
     lessee?:       Boolean;
     emailVerified: Boolean;
 
